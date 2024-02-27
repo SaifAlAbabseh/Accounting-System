@@ -70,7 +70,7 @@ if (!(isset($_SESSION) && $_SESSION["admin_id"])) header("Location:./");
             <br>
             View Inserted Products
         </a>
-        <a href="adminstration.php" class="feature view-products" style="background-color:green;" id="adminstration">
+        <a href="administration.php" class="feature view-products" style="background-color:green;" id="adminstration">
             <svg id='System_administrator_male_24' width='100' height='100' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
                 <rect width='24' height='24' stroke='none' fill='#000000' opacity='0' />
                 <g transform="matrix(0.74 0 0 0.74 12 12)">
@@ -78,7 +78,7 @@ if (!(isset($_SESSION) && $_SESSION["admin_id"])) header("Location:./");
                 </g>
             </svg>
             <br>
-            Adminstration
+            Administration
         </a>
     </div>
 </body>
