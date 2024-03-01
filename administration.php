@@ -99,7 +99,7 @@ if (!(isset($_SESSION["is_super_admin"]) && $_SESSION["is_super_admin"] == "1"))
 
 if (isset($_POST) && isset($_POST["add_new_admin_button"])) {
     if (isset($_POST["admin_name"]) && isset($_POST["admin_password"]) && isset($_POST["is_super_admin"]) && isset($_POST["has_insert_priv"]) && isset($_POST["has_view_edit_priv"])) {
-        if (trim($_POST["admin_name"]) != "" && trim($_POST["admin_password"])) {
+        if (trim($_POST["admin_name"]) != "" && trim($_POST["admin_password"]) != "") {
             require_once("DB.php");
             $query = "INSERT INTO admins(`admin_name`,`admin_password`,`is_super_admin`,`has_insert_privilege`,`has_view_edit_privilege`) VALUES('" . $_POST["admin_name"] . "', '" . $_POST["admin_password"] . "', '" . $_POST["is_super_admin"] . "', '" . $_POST["has_insert_priv"] . "', '" . $_POST["has_view_edit_priv"] . "')";
             $result = mysqli_query($conn, $query);
