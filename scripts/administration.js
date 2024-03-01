@@ -58,7 +58,7 @@ function clearResultBody() {
 
 function adminValueChanged(adminId, privName, privValue) {
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("PUT", "api/updateAdmin.php?admin_id=" + adminId + "&state_name=" + privName + "&state_value=" + privValue, true);
+    xmlhttp.open("PUT", "api/updateAdmin.php?adminId=" + adminId + "&stateName=" + privName + "&stateValue=" + privValue, true);
     xmlhttp.setRequestHeader("auth_token", authToken);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE)

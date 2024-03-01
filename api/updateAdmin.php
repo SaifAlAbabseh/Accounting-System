@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] != "PUT") {
     if (!isset($headers["auth_token"])) {
         http_response_code(401);
         echo json_encode(array('error' => 'Auth token is not valid'));
-    } else if (isset($_REQUEST) && isset($_REQUEST["admin_id"]) && isset($_REQUEST["state_name"]) && isset($_REQUEST["state_value"])) {
+    } else if (isset($_REQUEST) && isset($_REQUEST["adminId"]) && isset($_REQUEST["stateName"]) && isset($_REQUEST["stateValue"])) {
         require_once("../DB.php");
         $authQuery = "SELECT * FROM auth_tokens WHERE auth_token='" . $headers["auth_token"] . "' AND DATEDIFF(date, CURDATE()) BETWEEN 0 AND 1";
         $authResult = mysqli_query($conn, $authQuery);
         if ($authResult) {
             if (mysqli_num_rows($authResult)) {
-                $query = "UPDATE admins SET " . $_REQUEST["state_name"] . "='" . $_REQUEST["state_value"] . "' WHERE admin_id='" . $_REQUEST["admin_id"] . "'";
+                $query = "UPDATE admins SET " . $_REQUEST["stateName"] . "='" . $_REQUEST["stateValue"] . "' WHERE admin_id='" . $_REQUEST["adminId"] . "'";
                 $result = mysqli_query($conn, $query);
                 mysqli_close($conn);
                 if ($result) http_response_code(204);
@@ -38,6 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] != "PUT") {
         }
     } else {
         http_response_code(400);
-        echo json_encode(array('error' => 'admin_id and/or state_name and/or state_value parameters is not valid'));
+        echo json_encode(array('error' => 'admin_id and/or stateName and/or stateValue parameters is not valid'));
     }
 }
