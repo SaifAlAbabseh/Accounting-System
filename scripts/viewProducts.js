@@ -1,6 +1,6 @@
 //---------------- Imports Section ----------------//
 
-import * as fileFunctions from '../scripts/viewProductsFiles.js';
+import * as fileFunctions from '../scripts/convertJSONToCSV.js';
 
 //---------------- Variables Section ----------------//
 
