@@ -38,6 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] != "PUT") {
         }
     } else {
         http_response_code(400);
-        echo json_encode(array('error' => 'admin_id and/or stateName and/or stateValue parameters is not valid'));
+        echo json_encode(array('error' => 'adminId and/or stateName and/or stateValue parameters is not valid'));
     }
 }
