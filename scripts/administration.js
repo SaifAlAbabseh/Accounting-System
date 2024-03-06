@@ -19,7 +19,7 @@ function getAdmins() {
     xmlhttp.setRequestHeader("admin_id", adminId);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {
-            if (this.status == 200 || this.status == 204) {
+            if (this.status == 200) {
                 let response = JSON.parse(this.responseText);
                 for(let i = 0; i < response["admins"].length; i++) {
                     let row = document.createElement("tr");

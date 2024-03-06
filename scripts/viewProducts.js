@@ -38,7 +38,7 @@ function getAllProductsAndExport() {
     xmlhttp.setRequestHeader("auth_token", authToken);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {
-            if (this.status == 200 || this.status == 204) {
+            if (this.status == 200) {
                 let response = JSON.parse(this.responseText);
                 if (response.length > 0) fileFunctions.downloadCSV(response, "data.csv");
             }
@@ -57,7 +57,7 @@ function getProducts(isCurrentNumOfRows, numOfRows, startPosition, subtract) {
     xmlhttp.setRequestHeader("auth_token", authToken);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {
-            if (this.status == 200 || this.status == 204) {
+            if (this.status == 200) {
                 let wholeResponse = JSON.parse(this.responseText);
                 let responseJSON = wholeResponse["products"];
                 totalRows = wholeResponse["meta_data"]["total"];
