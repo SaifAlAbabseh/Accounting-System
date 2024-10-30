@@ -62,10 +62,12 @@ if(isset($_POST) && isset($_POST["submit_file_button"])) {
                 $index = 0;
                 $howManyIsOk = 0;
                 $howManyIsNotOk = 0;
+                $isOk = true;
                 require_once("DB.php");
                 while (($line = fgets($fileHandle)) !== false) {
                     if($index == 0) {
                         if(trim($line) != "product_name,product_buy_price,product_quantity,product_tax,product_discount,product_selling_price") {
+                            $isOk = false;
                             showMessage("File has invalid inputs, please check the file.", "error");
                             break;
                         }
@@ -100,7 +102,7 @@ if(isset($_POST) && isset($_POST["submit_file_button"])) {
                 mysqli_close($conn);
                 fclose($fileHandle);
 
-                showMessage("Successfully Imported Products: " . $howManyIsOk . "<br> Failed Imported Products: " . $howManyIsNotOk, "success");
+                if($isOk) showMessage("Successfully Imported Products: " . $howManyIsOk . "<br> Failed Imported Products: " . $howManyIsNotOk, "success");
             }
             else showMessage("Couldnt read from the file", "error");
         }

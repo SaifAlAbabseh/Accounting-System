@@ -67,6 +67,11 @@ else if(!(isset($_SESSION["has_view_edit_prev"]) && $_SESSION["has_view_edit_pre
         </button>
     </div>
     <table border="1" class="results-box">
+        <caption>
+            <label id="products-total" class="table-caption"></label>
+            &nbsp;&nbsp;
+            <label id="current-page-products-total" class="table-caption"></label>
+        </caption>
         <thead class="results-head">
             <tr>
                 <th>
@@ -103,11 +108,15 @@ else if(!(isset($_SESSION["has_view_edit_prev"]) && $_SESSION["has_view_edit_pre
     </table>
     <div class="results-footer">
         <button id="left-arrow" class="shift-arrow">&lt;</button>
+        <label class="page-number-label">Page:</label>
+        <div class="pagination-page-numbers" id="pagination-page-numbers">
+        </div>
         <button id="right-arrow" class="shift-arrow">&gt;</button>
     </div>
 
 
-    <script type="module" src="scripts/viewProducts.js"></script>
+    <script src="scripts/viewProducts.js"></script>
+    <script src="scripts/convertJSONToCSV.js"></script>
 </body>
 
 </html>

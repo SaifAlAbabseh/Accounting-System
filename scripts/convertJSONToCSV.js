@@ -1,4 +1,4 @@
-export function convertToCSV(jsonData) {
+function convertToCSV(jsonData) {
     // Extract column headers from the first object in the array
     const headers = Object.keys(jsonData[0]);
     // Create CSV content with headers
@@ -15,7 +15,7 @@ export function convertToCSV(jsonData) {
     return csvContent;
 }
 
-export function downloadCSV(jsonData, fileName) {
+function downloadCSV(jsonData, fileName) {
     const csvContent = convertToCSV(jsonData);
     // Create a Blob object to store the CSV data
     const blob = new Blob([csvContent], {

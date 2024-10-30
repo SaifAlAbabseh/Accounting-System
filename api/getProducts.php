@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] != "GET") {
                                 );
                         }
                     }
-                    http_response_code(200);
                     $totalRowsNumber = mysqli_fetch_row($countResult)[0];
                     $response["meta_data"] = array("page" => (int)$startPosition, "requested" => (int)$numOfRows, "available" => (int)$requestedNumberOfRows, "total" => (int)$totalRowsNumber);
+                    http_response_code(200);
                     echo json_encode($response);
                     exit;
                 } else {

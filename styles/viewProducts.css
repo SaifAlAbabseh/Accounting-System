@@ -30,16 +30,19 @@ body {
 .results-footer {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    user-select: none;
 }
 
 .shift-arrow {
     font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     font-weight: bolder;
     background-color: white;
-    border: solid 5px green;
+    border: solid 3px green;
     border-radius: 50%;
     cursor: pointer;
     color: green;
@@ -75,15 +78,15 @@ body {
     height: 70px;
 }
 
+.export-button:hover svg {
+    fill: green;
+}
+
 .export-box {
     display: flex;
     flex-direction: row;
     width: 100%;
     align-items: start;
-}
-
-.export-button:hover svg {
-    fill: green;
 }
 
 .result:hover {
@@ -119,10 +122,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-}
-
-#left-arrow {
-    display: none;
 }
 
 .results-box {
@@ -216,4 +215,45 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+
+.arrow-disabled {
+    pointer-events: none;
+    background-color: gray;
+    border: solid 5px gray;
+    color: black;
+}
+
+.pagination-page-number {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: lightgreen;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.pagination-page-numbers-compliment {
+    color: lightgreen;
+}
+
+.selected-page-number {
+    color: gray;
+    pointer-events: none;
+}
+
+.page-number-label {
+    color: lightgreen;
+    font-weight: bolder;
+    user-select: none;
+}
+
+.table-caption {
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+caption {
+    text-align: left;
 }
