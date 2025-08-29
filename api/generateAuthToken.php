@@ -6,9 +6,9 @@ error_reporting(0);
 
 $headers = getallheaders();
 
-if ($_SERVER['REQUEST_METHOD'] != "GET") {
+if ($_SERVER['REQUEST_METHOD'] != "POST") {
     http_response_code(405);
-    header('Allow: GET');
+    header('Allow: POST');
     echo json_encode(array('error' => $_SERVER['REQUEST_METHOD'] . ' request method is not allowed'));
     exit;
 } else {

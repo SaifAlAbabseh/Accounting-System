@@ -44,7 +44,7 @@ function generateAuthToken($adminId, $adminPassword)
         CURLOPT_TIMEOUT => 0,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_HTTPHEADER => array(
             "admin_id: $adminId",
             "admin_password: $adminPassword"
@@ -64,7 +64,7 @@ if (isset($_POST) && isset($_POST["login_button"])) {
         $adminId = $_POST["admin_id"];
         $password = $_POST["password"];
         require_once("DB.php");
-        $query = "SELECT admin_id, admin_name, is_super_admin, has_insert_privilege, has_view_edit_privilege FROM admins WHERE BINARY admin_id='" . $adminId . "' AND admin_password='" . $password . "'";
+        $query = "SELECT admin_id, admin_name, is_super_admin, has_insert_privilege, has_view_edit_privilege FROM admins WHERE BINARY admin_id='" . $adminId . "' AND BINARY admin_password='" . $password . "'";
         $result = mysqli_query($conn, $query);
         mysqli_close($conn);
         if ($result) {
